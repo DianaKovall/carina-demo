@@ -1,17 +1,16 @@
 package koval.web.gsmarena.pages;
 
-import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractPage;
 import koval.web.gsmarena.modals.LoginModal;
+import koval.web.gsmarena.modals.MenuModal;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
 public class WelcomePage extends AbstractPage {
 
 
-    @FindBy(id="login-active")
-    ExtendedWebElement loginButton;
-
+    @FindBy(xpath = "//*[@id=\"header\"]/div/div")
+    MenuModal menuModal;
 
     public WelcomePage(WebDriver driver) {
         super(driver);
@@ -19,9 +18,8 @@ public class WelcomePage extends AbstractPage {
     }
 
 
-    public LoginModal clickOnLoginButton(){
-        loginButton.click(10);
-        return new LoginModal(driver);
+    public LoginModal clickOnLoginButton() {
+        return menuModal.clickOnLoginButton();
     }
 
 

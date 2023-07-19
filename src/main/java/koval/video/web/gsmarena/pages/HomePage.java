@@ -1,43 +1,29 @@
 package koval.video.web.gsmarena.pages;
 
-import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractPage;
-import io.cucumber.java.an.E;
+import koval.video.web.gsmarena.modals.MenuModal;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
 public class HomePage extends AbstractPage {
 
-    @FindBy(id = "login-active")
-    ExtendedWebElement profileButton;
-
-    @FindBy(xpath = "//*[@class=\"article-info\"]/div/div/h1[text()=\" %s - user account\"]")
-    ExtendedWebElement userAccountText;
-
-    @FindBy(id="topsearch")
-    ExtendedWebElement searchBar;
-
-    @FindBy(id="topsearch-text")
-    ExtendedWebElement activeSearchBar;
-
-    @FindBy(xpath="//*[@id=\"topsearch\"]/div/a[1]")
-    ExtendedWebElement goButton;
+    @FindBy(xpath = "//*[@id=\"header\"]/div/div")
+    MenuModal menuModal;
 
     public HomePage(WebDriver driver) {
         super(driver);
     }
 
     public boolean isUserLogged(String userName) {
-        profileButton.click();
-        return userAccountText.format(userName).isElementPresent();
+        return menuModal.isUserLogged(userName);
     }
 
-    public SearchResultsPage searchForItem(String itemName)
-    {
-        searchBar.click();
-        activeSearchBar.type(itemName);
-        goButton.click();
-        return new SearchResultsPage(driver);
+    public SearchResultsPage searchForItem(String itemName) {
+        return menuModal.searchForItem(itemName);
+    }
+
+    public MerchHomePage clickOnMerchButton(){
+        return menuModal.clickOnMerchButton();
     }
 
 }
