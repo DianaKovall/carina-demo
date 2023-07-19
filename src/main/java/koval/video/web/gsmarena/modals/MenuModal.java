@@ -4,6 +4,7 @@ import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebEleme
 import com.qaprosoft.carina.core.gui.AbstractUIObject;
 import koval.video.web.gsmarena.pages.MerchHomePage;
 import koval.video.web.gsmarena.pages.SearchResultsPage;
+import koval.video.web.gsmarena.pages.menu.ProfilePage;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
@@ -59,6 +60,11 @@ public class MenuModal extends AbstractUIObject {
     public MerchHomePage clickOnMerchButton(){
         merchButton.click();
         return new MerchHomePage(driver);
+    }
+
+    public ProfilePage clickOnProfileButton(){
+        profileButton.click(20);
+        return new ProfilePage(driver);
     }
 
 

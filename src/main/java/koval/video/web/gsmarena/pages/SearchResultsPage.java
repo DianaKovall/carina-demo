@@ -4,6 +4,7 @@ import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebEleme
 import com.qaprosoft.carina.core.gui.AbstractPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 
 import java.util.List;
 
@@ -34,5 +35,15 @@ public class SearchResultsPage extends AbstractPage {
         }
         return true;
     }
+
+    public DetailedDevicePage clickOnDevice() {
+        if (listOfResults.isEmpty()) {
+            Assert.fail("List of devices is empty!");
+        }
+
+        listOfResults.get(0).click(20);
+        return new DetailedDevicePage(driver);
+    }
+
 
 }

@@ -11,13 +11,20 @@ public class CookiesPage extends AbstractPage {
     @FindBy(xpath = "/html/body/div[8]/div[1]/div/div[3]/a[1]")
     ExtendedWebElement acceptCookiesButton;
 
+
+
+    @FindBy(xpath = "/html/body/div[8]/div[1]/div/div[4]/a")
+    ExtendedWebElement closeCookiesPopUpButton;
+
+
     public CookiesPage(WebDriver driver) {
         super(driver);
     }
 
-    public WelcomePage acceptCookies(){
+    public SignInPage acceptCookies(){
         acceptCookiesButton.click(10);
-        return new WelcomePage(driver);
+        closeCookiesPopUpButton.click(20);
+        return new SignInPage(driver);
     }
 
 }

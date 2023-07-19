@@ -7,6 +7,7 @@ import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
 import com.zebrunner.carina.utils.R;
 import koval.video.web.gsmarena.pages.*;
 import koval.video.web.gsmarena.modals.LoginModal;
+import koval.video.web.gsmarena.pages.menu.ProfilePage;
 import koval.video.web.gsmarena.service.enums.Size;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -90,6 +91,22 @@ public class GSMArenaWebTestVideo implements IAbstractTest {
                 "[ FORGOTTEN PAGE ] The reset password massage is not present!");
 
     }
+
+    @Test(groups="login")
+    @MethodOwner(owner = "dkoval")
+    public void addToWishListTest(){
+        HomePage homePage = new HomePage(getDriver());
+        String deviceName = "Samsung";
+        String deviceModel = "Galaxy A54";
+        SearchResultsPage searchResultsPage = homePage.searchForItem(deviceModel);
+        DetailedDevicePage detailedDevicePage = searchResultsPage.clickOnDevice();
+
+        detailedDevicePage.clickOnBecomeFanButton();
+        ProfilePage profilePage = detailedDevicePage.clickOnProfileButton();
+        Assert.assertTrue(profilePage.isDeviceAddedToFavorite(deviceName, deviceModel),
+                String.format("[ PROFILE PAGE ] device model: %s was not added to favorite!", deviceModel));
+    }
+
 
 
 

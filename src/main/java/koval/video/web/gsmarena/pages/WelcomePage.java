@@ -14,6 +14,7 @@ public class WelcomePage extends AbstractPage {
 
     public WelcomePage(WebDriver driver) {
         super(driver);
+        setPageURL("https://www.gsmarena.com/");
     }
 
     public LoginModal clickOnLoginButton()

@@ -24,7 +24,7 @@ public class ForgottenPasswordPage extends AbstractPage {
     public ForgottenPasswordPage submitEmail() {
 
         emailField.type(R.TESTDATA.get("gsmarena_mail"));
-        submitButton.click();
+        submitButton.click(20);
         return new ForgottenPasswordPage(driver);
     }
 
