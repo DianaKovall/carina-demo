@@ -2,6 +2,7 @@ package koval.video.web.gsmarena.pages;
 
 import com.qaprosoft.carina.core.gui.AbstractPage;
 import koval.video.web.gsmarena.modals.MenuModal;
+import koval.video.web.gsmarena.service.enums.BrandOption;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
@@ -25,5 +26,10 @@ public class HomePage extends AbstractPage {
     public MerchHomePage clickOnMerchButton(){
         return menuModal.clickOnMerchButton();
     }
+
+    public PhoneFinderPage clickSearchAdvancedButton(){
+        return menuModal.clickOnSearchAdvancedButton();
+    }
+
 
 }

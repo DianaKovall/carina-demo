@@ -2,6 +2,7 @@ package koval.video.web.gsmarena.pages;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractPage;
+import koval.video.web.gsmarena.service.enums.BrandOption;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
@@ -21,15 +22,15 @@ public class SearchResultsPage extends AbstractPage {
         super(driver);
     }
 
-    public boolean isPageOpened(String itemName) {
-        return title.format(itemName).isElementPresent(20);
+    public boolean isPageOpened(BrandOption brandOption) {
+        return title.format(brandOption.getBrandOption()).isElementPresent(20);
     }
 
 
-    public boolean areResultsContainExpectedItems(String itemName) {
+    public boolean areResultsContainExpectedItems(BrandOption brandOption) {
 
         for (ExtendedWebElement listOfResult : listOfResults) {
-            if (!listOfResult.getText().contains(itemName)) {
+            if (!listOfResult.getText().contains(brandOption.getBrandOption())) {
                 return false;
             }
         }

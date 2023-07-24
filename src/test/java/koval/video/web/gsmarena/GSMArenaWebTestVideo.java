@@ -8,9 +8,11 @@ import com.zebrunner.carina.utils.R;
 import koval.video.web.gsmarena.pages.*;
 import koval.video.web.gsmarena.modals.LoginModal;
 import koval.video.web.gsmarena.pages.menu.ProfilePage;
+import koval.video.web.gsmarena.service.enums.BrandOption;
 import koval.video.web.gsmarena.service.enums.Size;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Test;
 
 public class GSMArenaWebTestVideo implements IAbstractTest {
@@ -41,12 +43,13 @@ public class GSMArenaWebTestVideo implements IAbstractTest {
     public void searchTest() {
 
         HomePage homePage = new HomePage(getDriver());
-        String itemName = "Samsung";
-        SearchResultsPage searchResultsPage = homePage.searchForItem(itemName);
-        Assert.assertTrue(searchResultsPage.isPageOpened(itemName),
-                String.format("[ SEARCH RESULTS PAGE ] Search results page is not opened! item: %s", itemName));
-        Assert.assertTrue(searchResultsPage.areResultsContainExpectedItems(itemName),
-                String.format("[ SEARCH RESULTS PAGE ] Search results does not contain item: %s", itemName));
+        //String itemName = ;
+        BrandOption brandOption = BrandOption.SAMSUNG;
+        SearchResultsPage searchResultsPage = homePage.searchForItem(brandOption.getBrandOption());
+        Assert.assertTrue(searchResultsPage.isPageOpened(brandOption),
+                String.format("[ SEARCH RESULTS PAGE ] Search results page is not opened! item: %s", brandOption));
+        Assert.assertTrue(searchResultsPage.areResultsContainExpectedItems(brandOption),
+                String.format("[ SEARCH RESULTS PAGE ] Search results does not contain item: %s", brandOption));
 
     }
 
@@ -60,17 +63,17 @@ public class GSMArenaWebTestVideo implements IAbstractTest {
         DetailedProductPage detailedProductPage = merchHomePage.clickOnSeeMoreButton();
 
         Size size = Size.M;
-        String expectedStandardColor="ASPHALT";
+        String expectedStandardColor = "ASPHALT";
         int expectedCartQuantity = 1;
         String expectedProductPrice = detailedProductPage.getProductPrice();
-        String expectedProductName= String.format("%s - %s / %s", detailedProductPage.getProductName(), size, expectedStandardColor);
+        String expectedProductName = String.format("%s - %s / %s", detailedProductPage.getProductName(), size, expectedStandardColor);
 
         detailedProductPage.selectSize(size);
         AddedToCartPage addedToCartPage = detailedProductPage.addToCart();
 
-        int actualCartQuantity =addedToCartPage.getCartQuantity();
-        String actualProductName= addedToCartPage.getProductNameFromCart();
-        String actualProductPrice= addedToCartPage.getProductPriceFromCart();
+        int actualCartQuantity = addedToCartPage.getCartQuantity();
+        String actualProductName = addedToCartPage.getProductNameFromCart();
+        String actualProductPrice = addedToCartPage.getProductPriceFromCart();
 
         Assert.assertEquals(actualCartQuantity, expectedCartQuantity, "[ ADDED TO CART PAGE ] cart quantity is not as expected!");
         Assert.assertEquals(actualProductName, expectedProductName, "[ ADDED TO CART PAGE ] product name is not as expected!");
@@ -79,8 +82,8 @@ public class GSMArenaWebTestVideo implements IAbstractTest {
     }
 
     @Test
-    @MethodOwner(owner="dkoval")
-    public void forgotPasswordTest(){
+    @MethodOwner(owner = "dkoval")
+    public void forgotPasswordTest() {
         WelcomePage welcomePage = new WelcomePage(getDriver());
         welcomePage.open();
         LoginModal loginModal = welcomePage.clickOnLoginButton();
@@ -92,9 +95,9 @@ public class GSMArenaWebTestVideo implements IAbstractTest {
 
     }
 
-    @Test(groups="login")
+    @Test(groups = "login")
     @MethodOwner(owner = "dkoval")
-    public void addToWishListTest(){
+    public void addToWishListTest() {
         HomePage homePage = new HomePage(getDriver());
         String deviceName = "Samsung";
         String deviceModel = "Galaxy A54";
@@ -108,6 +111,18 @@ public class GSMArenaWebTestVideo implements IAbstractTest {
     }
 
 
+    @Test(groups = "login")
+    @MethodOwner(owner = "dkoval")
+    public void sortTest() {
+        HomePage homePage = new HomePage(getDriver());
+        PhoneFinderPage phoneFinderPage = homePage.clickSearchAdvancedButton();
+
+        BrandOption brandOption = BrandOption.APPLE;
+        phoneFinderPage.selectBrandOption(brandOption);
+        SearchResultsPage searchResultsPage = phoneFinderPage.clickOnShowButton();
+        Assert.assertTrue(searchResultsPage.areResultsContainExpectedItems(brandOption),
+                "[ SEARCH RESULTS PAGE ] Products were not sorted correctly!");
+    }
 
 
 }
