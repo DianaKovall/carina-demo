@@ -1,4 +1,4 @@
-package koval.mobile.myfitnesspal.login;
+package koval.mobile.myfitnesspal.login.cucumber;
 
 
 import io.cucumber.junit.CucumberOptions;

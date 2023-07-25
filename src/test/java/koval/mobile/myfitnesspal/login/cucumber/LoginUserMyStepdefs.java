@@ -1,4 +1,4 @@
-package koval.mobile.myfitnesspal.login;
+package koval.mobile.myfitnesspal.login.cucumber;
 
 import com.zebrunner.carina.utils.R;
 import io.cucumber.java.en.Given;
