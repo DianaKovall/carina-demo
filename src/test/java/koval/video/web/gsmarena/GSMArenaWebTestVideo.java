@@ -43,7 +43,6 @@ public class GSMArenaWebTestVideo implements IAbstractTest {
     public void searchTest() {
 
         HomePage homePage = new HomePage(getDriver());
-        //String itemName = ;
         BrandOption brandOption = BrandOption.SAMSUNG;
         SearchResultsPage searchResultsPage = homePage.searchForItem(brandOption.getBrandOption());
         Assert.assertTrue(searchResultsPage.isPageOpened(brandOption),
