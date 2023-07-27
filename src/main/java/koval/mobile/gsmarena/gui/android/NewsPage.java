@@ -1,9 +1,11 @@
 package koval.mobile.gsmarena.gui.android;
 
+import com.qaprosoft.carina.core.gui.AbstractPage;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import koval.mobile.gsmarena.gui.android.modals.BurgerMenuModal;
 import koval.mobile.gsmarena.gui.common.NewsPageBase;
 import koval.mobile.gsmarena.gui.common.modals.BurgerMenuModalBase;
+import koval.mobile.gsmarena.service.MyGSMArenaBurgerMenu;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
@@ -19,9 +21,9 @@ public class NewsPage extends NewsPageBase {
     }
 
     @Override
-    public BurgerMenuModalBase openBurgerMenu() {
+    public AbstractPage openPageFromBurgerMenu(MyGSMArenaBurgerMenu myGSMArenaBurgerMenu) {
 
-        return burgerMenuModalBase.openBurgerMenu();
+        return burgerMenuModalBase.openPageFromBurgerMenu(myGSMArenaBurgerMenu);
     }
 
 }

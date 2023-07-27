@@ -2,6 +2,7 @@ package koval.mobile.gsmarena.gui.common.modals;
 
 import com.qaprosoft.carina.core.gui.AbstractPage;
 import com.zebrunner.carina.utils.mobile.IMobileUtils;
+import koval.mobile.gsmarena.service.MyGSMArenaBurgerMenu;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 
@@ -15,5 +16,5 @@ public abstract class BurgerMenuModalBase extends AbstractPage implements IMobil
         super(driver);
     }
 
-    public abstract BurgerMenuModalBase openBurgerMenu();
+    public abstract AbstractPage openPageFromBurgerMenu(MyGSMArenaBurgerMenu myGSMArenaBurgerMenu);
 }

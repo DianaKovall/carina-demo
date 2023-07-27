@@ -2,6 +2,7 @@ package koval.mobile.gsmarena.gui.common;
 
 import com.qaprosoft.carina.core.gui.AbstractPage;
 import koval.mobile.gsmarena.gui.common.modals.BurgerMenuModalBase;
+import koval.mobile.gsmarena.service.MyGSMArenaBurgerMenu;
 import org.openqa.selenium.WebDriver;
 
 public abstract class NewsPageBase extends AbstractPage{
@@ -12,5 +13,5 @@ public abstract class NewsPageBase extends AbstractPage{
     }
 
 
-    public abstract BurgerMenuModalBase openBurgerMenu();
+    public abstract AbstractPage openPageFromBurgerMenu(MyGSMArenaBurgerMenu myGSMArenaBurgerMenu);
 }
