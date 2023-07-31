@@ -23,6 +23,11 @@ public class ProfilePage extends ProfilePageBase {
     @FindBy(xpath = "//*[@resource-id='content']/android.widget.TextView[@text=\"%s - user account\"]")
     ExtendedWebElement profileLabel;
 
+
+    @FindBy(xpath = "//*[@resource-id=\"list-brands\"]/android.widget.TextView[@text=\"Favorite devices\"]/following-sibling::android.widget.ListView/android.view.View/android.view.View/android.view.View")
+    ExtendedWebElement favoriteDeviceName;
+
+
     public ProfilePage(WebDriver driver) {
         super(driver);
     }
@@ -37,6 +42,11 @@ public class ProfilePage extends ProfilePageBase {
     @Override
     public boolean isUserSuccessfullyLogged() {
         return profileLabel.format(R.TESTDATA.get("gsmarena_username")).isElementPresent(TWENTY_TIMEOUT);
+    }
+
+    @Override
+    public String getFavoriteDeviceName(){
+        return favoriteDeviceName.getText();
     }
 
 

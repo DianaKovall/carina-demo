@@ -3,6 +3,7 @@ package koval.video.mobile.gsmarena.gui.android.burgerMenuPages;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.zebrunner.carina.utils.R;
 import com.zebrunner.carina.utils.factory.DeviceType;
+import koval.video.mobile.gsmarena.gui.common.ForgottenPasswordPageBase;
 import koval.video.mobile.gsmarena.gui.common.buttomMenuPages.NewsPageBase;
 import koval.video.mobile.gsmarena.gui.common.burgerMenuPages.LoginPageBase;
 import org.openqa.selenium.WebDriver;
@@ -21,6 +22,10 @@ public class LoginPage extends LoginPageBase {
 
     @FindBy(id = "com.gsmarena.android:id/btn_login")
     ExtendedWebElement loginButton;
+
+    @FindBy(id = "com.gsmarena.android:id/link_forgot_password")
+    ExtendedWebElement forgetPasswordLink;
+
 
     public LoginPage(WebDriver driver) {
         super(driver);
@@ -43,6 +48,12 @@ public class LoginPage extends LoginPageBase {
     public NewsPageBase clickOnLoginButton() {
         loginButton.click();
         return initPage(getDriver(), NewsPageBase.class);
+    }
+
+    @Override
+    public ForgottenPasswordPageBase clickOnForgetPasswordLink() {
+        forgetPasswordLink.click(TWENTY_TIMEOUT);
+        return initPage(getDriver(), ForgottenPasswordPageBase.class);
     }
 
 }

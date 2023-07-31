@@ -11,4 +11,6 @@ public abstract class ProfilePageBase extends AbstractPage {
     public abstract LoginPageBase clickOnLogoutButton();
 
     public abstract boolean isUserSuccessfullyLogged();
+
+    public abstract String getFavoriteDeviceName();
 }

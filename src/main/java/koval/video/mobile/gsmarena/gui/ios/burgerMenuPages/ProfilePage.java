@@ -21,4 +21,9 @@ public class ProfilePage extends ProfilePageBase {
     public boolean isUserSuccessfullyLogged() {
         throw new NotImplementedException();
     }
+
+    @Override
+    public String getFavoriteDeviceName() {
+        throw new NotImplementedException();
+    }
 }

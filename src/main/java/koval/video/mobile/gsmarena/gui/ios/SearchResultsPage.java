@@ -2,6 +2,7 @@ package koval.video.mobile.gsmarena.gui.ios;
 
 import com.zebrunner.carina.utils.exception.NotImplementedException;
 import com.zebrunner.carina.utils.factory.DeviceType;
+import koval.video.mobile.gsmarena.gui.common.DeviceInformationPageBase;
 import koval.video.mobile.gsmarena.gui.common.SearchResultsPageBase;
 import org.openqa.selenium.WebDriver;
 
@@ -25,6 +26,11 @@ public class SearchResultsPage extends SearchResultsPageBase {
 
     @Override
     public boolean isSearchedResultsAsExpected(String searchKeyword) {
+        throw new NotImplementedException();
+    }
+
+    @Override
+    public DeviceInformationPageBase clickOnDeviceBlock(String deviceBlockString) {
         throw new NotImplementedException();
     }
 }

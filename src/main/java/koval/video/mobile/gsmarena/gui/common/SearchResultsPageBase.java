@@ -16,4 +16,6 @@ public abstract class SearchResultsPageBase extends AbstractPage implements IMob
     public abstract List<String> getSearchedItemsToList();
 
     public abstract boolean isSearchedResultsAsExpected(String searchKeyword);
+
+    public abstract DeviceInformationPageBase clickOnDeviceBlock(String deviceBlockString);
 }
