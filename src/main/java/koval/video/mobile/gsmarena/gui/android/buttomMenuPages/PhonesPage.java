@@ -7,6 +7,7 @@ import koval.video.mobile.gsmarena.gui.android.modals.BurgerMenuModal;
 import koval.video.mobile.gsmarena.gui.common.SearchResultsPageBase;
 import koval.video.mobile.gsmarena.gui.common.buttomMenuPages.PhonesPageBase;
 import koval.video.mobile.gsmarena.service.enums.MyGSMArenaMenuItems;
+import koval.video.mobile.gsmarena.service.enums.PhoneTabs;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
@@ -22,6 +23,9 @@ public class PhonesPage extends PhonesPageBase {
 
     @FindBy(xpath = "//android.widget.ImageButton[@content-desc=\"Open Drawer\"]")
     BurgerMenuModal burgerMenuModal;
+
+    @FindBy(xpath = "//*[@resource-id=\"com.gsmarena.android:id/tab_layout\"]/android.widget.LinearLayout/android.widget.LinearLayout[@content-desc='%s']")
+    ExtendedWebElement tabByContent;
 
     public PhonesPage(WebDriver driver) {
         super(driver);
@@ -43,4 +47,11 @@ public class PhonesPage extends PhonesPageBase {
     public AbstractPage openPageFromBurgerMenu(MyGSMArenaMenuItems myGSMArenaMenuItems) {
         return burgerMenuModal.openPageFromBurgerMenu(myGSMArenaMenuItems);
     }
+
+    @Override
+    public AbstractPage openTabByContext(PhoneTabs phoneTabs){
+        tabByContent.format(phoneTabs.getTabName()).click();
+        return initPage(getDriver(), phoneTabs.getClassName());
+    }
+
 }

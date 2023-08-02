@@ -6,6 +6,7 @@ import com.zebrunner.carina.utils.factory.DeviceType;
 import koval.video.mobile.gsmarena.gui.common.SearchResultsPageBase;
 import koval.video.mobile.gsmarena.gui.common.buttomMenuPages.PhonesPageBase;
 import koval.video.mobile.gsmarena.service.enums.MyGSMArenaMenuItems;
+import koval.video.mobile.gsmarena.service.enums.PhoneTabs;
 import org.openqa.selenium.WebDriver;
 
 
@@ -27,6 +28,11 @@ public class PhonesPage extends PhonesPageBase {
 
     @Override
     public AbstractPage openPageFromBurgerMenu(MyGSMArenaMenuItems myGSMArenaMenuItems) {
+        throw new NotImplementedException();
+    }
+
+    @Override
+    public AbstractPage openTabByContext(PhoneTabs phoneTabs) {
         throw new NotImplementedException();
     }
 }

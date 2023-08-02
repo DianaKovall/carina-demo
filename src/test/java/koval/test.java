@@ -10,6 +10,7 @@ import koval.mobile.myfitnesspal.gui.common.loginPages.LogInPageBase;
 import koval.mobile.myfitnesspal.gui.common.loginPages.WelcomePageBase;
 import koval.mobile.myfitnesspal.service.AdbService;
 import koval.mobile.myfitnesspal.service.enums.*;
+import koval.video.mobile.gsmarena.service.enums.PhoneTabs;
 import koval.web.gsmarena.service.enums.Size;
 import koval.web.myfitnesspal.service.factories.foodFactory.Food;
 import koval.web.myfitnesspal.service.factories.foodFactory.FoodFactory;
@@ -92,7 +93,8 @@ public class test implements IMyInterface {
     @Test()
     public void TEST() {
 
-        LOGGER.info(Size.M.name());
+
+        LOGGER.info(PhoneTabs.POPULAR.toString());
     }
 
 

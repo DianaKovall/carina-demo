@@ -9,24 +9,27 @@ import koval.video.mobile.gsmarena.gui.common.buttomMenuPages.NewsPageBase;
 import koval.video.mobile.gsmarena.gui.common.burgerMenuPages.LoginPageBase;
 import koval.video.mobile.gsmarena.gui.common.burgerMenuPages.ProfilePageBase;
 import koval.video.mobile.gsmarena.gui.common.buttomMenuPages.PhonesPageBase;
+import koval.video.mobile.gsmarena.gui.common.phoneTabs.phoneFinder.PhoneFinderPageBase;
+import koval.video.mobile.gsmarena.gui.common.phoneTabs.phoneFinder.PhoneFinderResultsPageBase;
 import koval.video.mobile.gsmarena.service.enums.ButtomMenuItems;
 import koval.video.mobile.gsmarena.service.enums.MyGSMArenaMenuItems;
+import koval.video.mobile.gsmarena.service.enums.PhoneTabs;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.util.List;
 
 
-
-public class GSMArenaMobileTestVideo implements IAbstractTest {
+public class GSMArenaMobileVideoTest implements IAbstractTest {
 
 
     private final String SEARCH_KEYWORD = "Samsung";
 
     private final String DEVICE_NAME = "Samsung Galaxy A54";
 
+    private final String BRAND_NAME = "Dell";
 
-    public NewsPageBase login(){
+    public NewsPageBase login() {
         NewsPageBase newsPageBase = initPage(getDriver(), NewsPageBase.class);
         LoginPageBase loginPageBase = (LoginPageBase) newsPageBase.openPageFromBurgerMenu(MyGSMArenaMenuItems.LOGIN);
 
@@ -36,7 +39,7 @@ public class GSMArenaMobileTestVideo implements IAbstractTest {
         }
 
         loginPageBase.enterValidCredentials();
-       return  loginPageBase.clickOnLoginButton();
+        return loginPageBase.clickOnLoginButton();
     }
 
     @Test()
@@ -110,6 +113,15 @@ public class GSMArenaMobileTestVideo implements IAbstractTest {
     @MethodOwner(owner = "dkoval")
     public void sortTest() {
         NewsPageBase newsPageBase = login();
+        PhonesPageBase phonesPageBase = (PhonesPageBase) newsPageBase.openPageFromButtomMenu(ButtomMenuItems.PHONES);
+        PhoneFinderPageBase phoneFinderPageBase = (PhoneFinderPageBase) phonesPageBase.openTabByContext(PhoneTabs.PHONE_FINDER);
+
+        phoneFinderPageBase.setBrandName(BRAND_NAME);
+        PhoneFinderResultsPageBase phoneFinderResultsPageBase = phoneFinderPageBase.clickOnShowResultsButton();
+        List<String> resultsNameList = phoneFinderResultsPageBase.getResultsList();
+        Assert.assertTrue(phoneFinderResultsPageBase.isProductSortedCorrectly(resultsNameList, BRAND_NAME),
+                "[ PHONE FINDER RESULTS ] Product is sorted incorrectly!");
+
     }
 
 }
