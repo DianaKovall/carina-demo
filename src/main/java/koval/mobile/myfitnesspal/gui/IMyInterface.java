@@ -2,15 +2,8 @@ package koval.mobile.myfitnesspal.gui;
 
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.zebrunner.carina.utils.mobile.IMobileUtils;
-import koval.mobile.myfitnesspal.gui.common.downMenuPages.dashboardPage.DashboardPageBase;
-import koval.mobile.myfitnesspal.gui.common.downMenuPages.plansPage.PlansDetailsPageBase;
-import koval.mobile.myfitnesspal.gui.common.downMenuPages.plansPage.PlansHubPageBase;
-import koval.mobile.myfitnesspal.gui.common.downMenuPages.plansPage.PlansTaskManagerPageBase;
 import koval.mobile.myfitnesspal.gui.common.phoneInterface.PhoneHomePageBase;
 import koval.mobile.myfitnesspal.service.AdbService;
-import koval.mobile.myfitnesspal.service.enums.DownMenuElement;
-import koval.mobile.myfitnesspal.service.enums.Filters;
-import koval.mobile.myfitnesspal.service.enums.FreePlansName;
 import koval.mobile.myfitnesspal.utils.IConstantUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,22 +27,5 @@ public interface IMyInterface extends IConstantUtils, IMobileUtils, IAbstractTes
         return initPage(getDriver(), PhoneHomePageBase.class);
     }
 
-//    default PlansTaskManagerPageBase addPlansByName(FreePlansName freePlansName){
-//        DashboardPageBase dashboardPageBase = initPage(getDriver(), DashboardPageBase.class);
-//
-//        PlansHubPageBase plansHubPageBase = (PlansHubPageBase) dashboardPageBase.openPageFromDownMenuByName(DownMenuElement.PLANS);
-//        PlansTaskManagerPageBase plansTaskManagerPageBase = initPage(getDriver(), PlansTaskManagerPageBase.class);
-//
-//        if (!plansHubPageBase.isPageOpened(TIMEOUT_FIFTEEN)) {
-//            plansHubPageBase = plansTaskManagerPageBase.endPlan();
-//        }
-//
-//        PlansDetailsPageBase plansDetailsPageBase = plansHubPageBase.clickOnPlanByName(Filters.FREE, freePlansName);
-//        plansDetailsPageBase.clickOnStartPlan();
-//        plansTaskManagerPageBase = plansDetailsPageBase.clickOnContinueAlertMessageIfPresent();
-//        plansTaskManagerPageBase.closeWelcomeMessageIfPresent(TIMEOUT_TEN);
-//
-//        return initPage(getDriver(), PlansTaskManagerPageBase.class);
-//    }
 
 }
