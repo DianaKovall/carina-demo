@@ -1,5 +1,6 @@
 package koval.mobile.myfitnesspal.login;
 
+
 import com.zebrunner.agent.core.annotation.TestLabel;
 import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
 import com.zebrunner.carina.core.registrar.tag.TestTag;
