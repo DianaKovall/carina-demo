@@ -11,6 +11,7 @@ import koval.mobile.myfitnesspal.gui.common.downMenuPages.plansPage.PlansTaskMan
 import koval.mobile.myfitnesspal.gui.common.webPages.PlansGoogleDocWebPageBase;
 import koval.mobile.myfitnesspal.service.enums.DownMenuElement;
 import koval.mobile.myfitnesspal.service.enums.Filters;
+import koval.mobile.myfitnesspal.service.enums.FreePlansName;
 import koval.mobile.myfitnesspal.service.enums.PlansCategory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Point;
@@ -24,6 +25,9 @@ public class PlansHubPage extends PlansHubPageBase {
 
     @FindBy(xpath = "//*[@resource-id='com.myfitnesspal.android.plans:id/plans_segment_header' and @text='%s']//following-sibling::*//android.view.ViewGroup")
     private ExtendedWebElement planByCategory;
+
+    @FindBy(xpath = "//*[@resource-id='com.myfitnesspal.android.plans:id/plan_name'][@text='%s']")
+    private ExtendedWebElement planByName;
 
     @FindBy(xpath = "//*[@resource-id='com.myfitnesspal.android.plans:id/chipGroupFilterTags']/child::*[@text='%s']")
     private ExtendedWebElement filterTagButton;
@@ -69,6 +73,15 @@ public class PlansHubPage extends PlansHubPageBase {
     public PlansDetailsPageBase clickOnAvailablePlan(Filters filters) {
         filterTagButton.format(filters.getFilters()).click(TIMEOUT_FIFTEEN);
         planByCategory.format(PlansCategory.AVAILABLE_PLANS.getPlanCategory()).click(TIMEOUT_FIFTEEN);
+        return initPage(getDriver(), PlansDetailsPageBase.class);
+    }
+
+    @Override
+    public PlansDetailsPageBase clickOnPlanByName(Filters filters, FreePlansName freePlansName) {
+        filterTagButton.format(filters.getFilters()).click(TIMEOUT_FIFTEEN);
+        ExtendedWebElement freePlanByName = planByName.format(freePlansName.getFreePlanName());
+        swipe(freePlanByName);
+        freePlanByName.click(TIMEOUT_FIFTEEN);
         return initPage(getDriver(), PlansDetailsPageBase.class);
     }
 

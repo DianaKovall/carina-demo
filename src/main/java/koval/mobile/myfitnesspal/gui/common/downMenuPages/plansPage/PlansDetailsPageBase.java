@@ -11,11 +11,13 @@ public abstract class PlansDetailsPageBase extends MyAbstractPageBase {
     }
 
 
-    public abstract boolean isPageOpened(int timeout);
+    public abstract boolean isPageOpened(String pageName, String titleText);
+
 
     public abstract PlansDetailsPageBase clickOnStartPlan();
 
     public abstract PlansTaskManagerPageBase clickOnContinueAlertMessageIfPresent();
 
     public abstract boolean isAlertMessageAboutEndingPlanOpen();
+
 }

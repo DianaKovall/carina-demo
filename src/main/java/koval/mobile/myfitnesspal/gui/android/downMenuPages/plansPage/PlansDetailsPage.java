@@ -21,8 +21,8 @@ public class PlansDetailsPage extends PlansDetailsPageBase {
     @FindBy(xpath = "//*[@resource-id='com.myfitnesspal.android:id/message' and @text='%s']")
     private ExtendedWebElement alertMessage;
 
-    @FindBy(xpath = "//*[@resource-id='com.myfitnesspal.android.plans:id/internalToolbar']/child::*[@text='%s']")
-    private ExtendedWebElement titleByText;
+    @FindBy(xpath = "//android.widget.LinearLayout/android.view.ViewGroup/android.widget.TextView[@text='%s']")
+    private ExtendedWebElement pageNameByText;
 
 
     public PlansDetailsPage(WebDriver driver) {
@@ -30,9 +30,11 @@ public class PlansDetailsPage extends PlansDetailsPageBase {
     }
 
 
+
     @Override
-    public boolean isPageOpened(int timeout) {
-        return titleByText.format(PLAN_DETAILS).isElementPresent(timeout);
+    public boolean isPageOpened(String pageName, String titleText) {
+        return pageNameByText.format(pageName).isElementPresent(TIMEOUT_TWENTY) &&
+                itemByText.format(titleText).isElementPresent(TIMEOUT_TWENTY);
     }
 
 
@@ -52,5 +54,6 @@ public class PlansDetailsPage extends PlansDetailsPageBase {
     public boolean isAlertMessageAboutEndingPlanOpen() {
         return alertMessage.format(ENDING_PLAN_MESSAGE).isElementPresent(TIMEOUT_TEN);
     }
+
 
 }

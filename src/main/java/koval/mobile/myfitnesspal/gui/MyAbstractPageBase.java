@@ -11,6 +11,10 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -37,13 +41,17 @@ public abstract class MyAbstractPageBase extends AbstractPage implements IMyInte
     public ExtendedWebElement itemByContainsText;
 
 
-    @FindBy(xpath ="//*[@resource-id='android:id/content']/child::*//*[@resource-id='com.myfitnesspal.android:id/subtitle' and contains(@text, '%s')]")
+    @FindBy(xpath = "//*[@resource-id='android:id/content']/child::*//*[@resource-id='com.myfitnesspal.android:id/subtitle' and contains(@text, '%s')]")
     public ExtendedWebElement popUpCompletePlanTasks;
 
     public MyAbstractPageBase(WebDriver driver) {
         super(driver);
     }
 
+
+    public void goBack() {
+        driver.navigate().back();
+    }
 
     public boolean isPopUpCompletePlanTasksPresent() {
         return popUpCompletePlanTasks.format(COMPLETE_PLAN).isElementPresent(TIMEOUT_FIVE);
@@ -155,7 +163,6 @@ public abstract class MyAbstractPageBase extends AbstractPage implements IMyInte
     }
 
 
-
     public boolean closeNotRespondingPopUpIfPresent() {
 
         ExtendedWebElement closeAppButton = itemByText.format(CLOSE_APP);
@@ -173,5 +180,28 @@ public abstract class MyAbstractPageBase extends AbstractPage implements IMyInte
         return initPage(getDriver(), LogInPageBase.class);
     }
 
+
+    public static String fileToString(String fileName) {
+        String str = "";
+        try {
+            InputStream is = new FileInputStream(fileName);
+            BufferedReader buf = new BufferedReader(new InputStreamReader(is));
+
+            String line = buf.readLine();
+            StringBuilder sb = new StringBuilder();
+
+            while (line != null) {
+                sb.append(line).append("\n");
+                line = buf.readLine();
+            }
+
+            return sb.toString();
+
+        } catch (Exception e) {
+            LOGGER.info("Error");
+        }
+
+        return str;
+    }
 
 }

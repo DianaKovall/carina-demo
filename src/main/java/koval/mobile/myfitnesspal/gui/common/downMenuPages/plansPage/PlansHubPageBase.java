@@ -5,6 +5,7 @@ import koval.mobile.myfitnesspal.gui.MyAbstractPageBase;
 import koval.mobile.myfitnesspal.gui.common.webPages.PlansGoogleDocWebPageBase;
 import koval.mobile.myfitnesspal.service.enums.DownMenuElement;
 import koval.mobile.myfitnesspal.service.enums.Filters;
+import koval.mobile.myfitnesspal.service.enums.FreePlansName;
 import koval.mobile.myfitnesspal.service.enums.PlansCategory;
 import org.openqa.selenium.WebDriver;
 
@@ -22,6 +23,8 @@ public abstract class PlansHubPageBase extends MyAbstractPageBase {
     public abstract AbstractPage openPageFromDownMenuByName(DownMenuElement downMenuElement);
 
     public abstract PlansDetailsPageBase clickOnAvailablePlan(Filters filters);
+
+    public abstract PlansDetailsPageBase clickOnPlanByName(Filters filters, FreePlansName freePlansName);
 
     public abstract boolean isCurrentActivePlanDisplayed(String currentPlanTitle);
 

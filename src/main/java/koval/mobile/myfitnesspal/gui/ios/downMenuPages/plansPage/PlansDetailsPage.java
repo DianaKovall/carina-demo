@@ -17,10 +17,9 @@ public class PlansDetailsPage extends PlansDetailsPageBase {
     }
 
     @Override
-    public boolean isPageOpened(int timeout) {
+    public boolean isPageOpened(String pageName, String titleText) {
         throw new NotImplementedException();
     }
-
 
     @Override
     public PlansDetailsPageBase clickOnStartPlan() {
