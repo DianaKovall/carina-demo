@@ -1,0 +1,164 @@
+{
+  "plan": [
+    {
+      "day": 1,
+      "tasks": [
+        {
+          "task": "Discover ways to customize MyFitnessPal",
+          "pageName": "Task Details",
+          "title": "How to Customize the App for Your Goals"
+        },
+        {
+          "task": "Set up your goals",
+          "pageName": "Goals",
+          "title": "Nutrition Goals"
+        },
+        {
+          "task": "Link your fitness trackers and apps",
+          "pageName": "Apps & Devices",
+          "title": "Featured"
+        },
+        {
+          "task": "Log your first meal",
+          "pageName": "Diary",
+          "title": "Calories Remaining"
+        },
+        {
+          "task": "Keep this article handy!",
+          "pageName": "Meal Plan",
+          "title": "Customize Your MyFitnessPal Account"
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "tasks": [
+        {
+          "task": "Learn about the different ways to track food",
+          "pageName": "Meal Plan",
+          "title": "Levels of Food Logging"
+        },
+        {
+          "task": "Log all your meals for the day",
+          "pageName": "Diary",
+          "title": "Calories Remaining"
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "tasks": [
+        {
+          "task": "Explore the different logging tools",
+          "pageName": "Task Details",
+          "title": "How To Log Your Food On The App"
+        },
+        {
+          "task": "Log your meals",
+          "pageName": "Diary",
+          "title": "Calories Remaining"
+        },
+        {
+          "task": "Learn how to estimate portions sizes",
+          "pageName": "Task Details",
+          "title": ""
+        },
+        {
+          "task": "Keep this article handy!",
+          "pageName": "Meal Plan",
+          "title": "Ways to Log Food"
+        }
+      ]
+    },
+    {
+      "day": 4,
+      "tasks": [
+        {
+          "task": "Discover logging shortcuts",
+          "pageName": "Meal Plan",
+          "title": "Logging Shortcuts"
+        },
+        {
+          "task": "Log your meals",
+          "pageName": "Diary",
+          "title": "Calories Remaining"
+        },
+        {
+          "task": "Tip of the day: Be prepared",
+          "pageName": "Diary",
+          "title": "Calories Remaining"
+        }
+      ]
+    },
+    {
+      "day": 5,
+      "tasks": [
+        {
+          "task": "Analyze your nutrition through charts",
+          "pageName": "Meal Plan",
+          "title": "Understanding Your Nutrition Reports"
+        },
+        {
+          "task": "Get your weight prediction",
+          "pageName": "Meal Plan",
+          "title": "Getting Your Weight Prediction"
+        }
+      ]
+    },
+    {
+      "day": 6,
+      "tasks": [
+        {
+          "task": "Stay accountable by sharing your diary",
+          "pageName": "Meal Plan",
+          "title": "Sharing Your Diary"
+        },
+        {
+          "task": "Add friends on MyFitnessPal",
+          "pageName": "Friends",
+          "title": "REQUESTS"
+        },
+        {
+          "task": "Visit the MyFitnessPal Forum",
+          "pageName": "Community",
+          "title": "MyFitnessPal Community"
+        },
+        {
+          "task": "Be inspired by Victory Stories",
+          "pageName": "Task Details",
+          "title": "Inspiration"
+        }
+      ]
+    },
+    {
+      "day": 7,
+      "tasks": [
+        {
+          "task": "Check out the Essential Guides",
+          "pageName": "Task Details",
+          "title": "Essential-Guides"
+        },
+        {
+          "task": "Nutrition advice",
+          "pageName": "Task Details",
+          "title": "TRENDING ARTICLES"
+        },
+        {
+          "task": "Explore recipes",
+          "pageName": "Recipes",
+          "title": "Pre-Workout"
+        },
+        {
+          "task": "Find a workout routine",
+          "pageName": "Workout Routines",
+          "title": "Stretch & Strengthen"
+        },
+        {
+          "task": "Watch some videos",
+          "pageName": "Task Details",
+          "title": "MENU"
+        }
+      ]
+    }
+  ]
+}
