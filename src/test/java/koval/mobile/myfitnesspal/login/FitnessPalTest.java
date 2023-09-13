@@ -2,31 +2,29 @@ package koval.mobile.myfitnesspal.login;
 
 import com.zebrunner.agent.core.annotation.TestLabel;
 import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
-
 import com.zebrunner.carina.core.registrar.tag.TestTag;
 import com.zebrunner.carina.utils.R;
 import com.zebrunner.carina.utils.resources.L10N;
-import io.cucumber.junit.CucumberOptions;
 import koval.mobile.myfitnesspal.gui.common.actions.RecipesMealsFoodsPageBase;
-import koval.mobile.myfitnesspal.gui.common.downMenuPages.MorePageBase;
-import koval.mobile.myfitnesspal.gui.common.downMenuPages.plansPage.PlansDetailsPageBase;
-import koval.mobile.myfitnesspal.gui.common.downMenuPages.plansPage.PlansHubPageBase;
-import koval.mobile.myfitnesspal.gui.common.downMenuPages.dashboardPage.mePage.MePageBase;
 import koval.mobile.myfitnesspal.gui.common.actions.addExercise.CardiovascularPageBase;
 import koval.mobile.myfitnesspal.gui.common.actions.addExercise.NewCardioExercisePageBase;
+import koval.mobile.myfitnesspal.gui.common.actions.addFood.SearchFoodPageBase;
+import koval.mobile.myfitnesspal.gui.common.actions.addFood.tabsCreatePages.myFoods.CreateFoodPageBase;
+import koval.mobile.myfitnesspal.gui.common.actions.addFood.tabsCreatePages.myMeals.CreateMealPageBase;
+import koval.mobile.myfitnesspal.gui.common.actions.addFood.tabsCreatePages.myRecipes.CreateRecipePageBase;
+import koval.mobile.myfitnesspal.gui.common.downMenuPages.DiaryPageBase;
+import koval.mobile.myfitnesspal.gui.common.downMenuPages.MorePageBase;
+import koval.mobile.myfitnesspal.gui.common.downMenuPages.dashboardPage.DashboardPageBase;
+import koval.mobile.myfitnesspal.gui.common.downMenuPages.dashboardPage.mePage.MePageBase;
+import koval.mobile.myfitnesspal.gui.common.downMenuPages.plansPage.PlansDetailsPageBase;
+import koval.mobile.myfitnesspal.gui.common.downMenuPages.plansPage.PlansHubPageBase;
 import koval.mobile.myfitnesspal.gui.common.downMenuPages.plansPage.PlansTaskManagerPageBase;
 import koval.mobile.myfitnesspal.gui.common.downMenuPages.plansPage.workout.LogWorkoutPageBase;
 import koval.mobile.myfitnesspal.gui.common.modal.DownMenuModalBase;
 import koval.mobile.myfitnesspal.gui.common.phoneInterface.PhoneHomePageBase;
 import koval.mobile.myfitnesspal.gui.common.phoneInterface.PhoneWidgetPageBase;
-import koval.mobile.myfitnesspal.gui.common.actions.addFood.SearchFoodPageBase;
-import koval.mobile.myfitnesspal.gui.common.downMenuPages.dashboardPage.DashboardPageBase;
-import koval.mobile.myfitnesspal.gui.common.downMenuPages.DiaryPageBase;
-import koval.mobile.myfitnesspal.gui.common.actions.addFood.tabsCreatePages.myFoods.CreateFoodPageBase;
-import koval.mobile.myfitnesspal.gui.common.actions.addFood.tabsCreatePages.myMeals.CreateMealPageBase;
-import koval.mobile.myfitnesspal.gui.common.actions.addFood.tabsCreatePages.myRecipes.CreateRecipePageBase;
 import koval.mobile.myfitnesspal.gui.common.webPages.PlansGoogleDocWebPageBase;
-import koval.mobile.myfitnesspal.service.AdbService.*;
+import koval.mobile.myfitnesspal.service.AdbService.AppPackage;
 import koval.mobile.myfitnesspal.service.enums.*;
 import koval.mobile.myfitnesspal.service.factories.exerciseFactory.CardioExercise;
 import koval.mobile.myfitnesspal.service.factories.exerciseFactory.CardioExerciseFactory;
@@ -39,7 +37,6 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.time.LocalDate;
 import java.util.*;
 
 
