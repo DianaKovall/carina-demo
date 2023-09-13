@@ -25,20 +25,9 @@ public class PlansDetailsPage extends PlansDetailsPageBase {
     private ExtendedWebElement pageNameByText;
 
 
-    @FindBy(xpath = "//android.view.View/android.view.View/android.view.View[3]/android.widget.TextView[1][@text='%s']")
-    private ExtendedWebElement titleTest;
-
-
     public PlansDetailsPage(WebDriver driver) {
         super(driver);
     }
-
-
-//    @Override
-//    public boolean isPageOpened(String pageName, String titleText) {
-//        return pageNameByText.format(pageName).isElementPresent(TIMEOUT_TWENTY) &&
-//                titleTest.format(titleText).isElementPresent(TIMEOUT_TWENTY);
-//    }
 
 
 
