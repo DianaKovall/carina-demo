@@ -102,6 +102,10 @@ public interface IConstantUtils {
 
     String LATER = "Later";
 
+    String WORKOUT_LOGGED = "Workout logged.";
+
+    String ERROR_JSON = "Error building JSON";
+
     String SAVE = L10N.getText("save");
 
     String ACCEPT = L10N.getText("accept");
@@ -109,6 +113,10 @@ public interface IConstantUtils {
     String CHECKED = "checked";
 
     String END_PLAN = "End Plan";
+
+    String LOG = "Log";
+
+    String TIP_OF_DAY = "Tip of the day: Be prepared";
 
     String END = "End";
 

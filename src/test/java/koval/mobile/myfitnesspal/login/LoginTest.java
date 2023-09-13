@@ -66,11 +66,11 @@ public class LoginTest implements IMyInterface {
     }
 
 
-    @AfterMethod(onlyForGroups = {"logout"})
-    public void logout() {
-        adbService.clearAppCache(AdbService.AppPackage.MY_FITNESS_PAL);
-
-    }
+//    @AfterMethod(onlyForGroups = {"logout"})
+//    public void logout() {
+//        adbService.clearAppCache(AdbService.AppPackage.MY_FITNESS_PAL);
+//
+//    }
 
     @AfterMethod(onlyForGroups = {"closeApp"})
     public void closeApplication() {

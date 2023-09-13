@@ -10,6 +10,7 @@ import koval.mobile.myfitnesspal.gui.common.downMenuPages.plansPage.PlansTaskMan
 import koval.mobile.myfitnesspal.gui.common.webPages.PlansGoogleDocWebPageBase;
 import koval.mobile.myfitnesspal.service.enums.DownMenuElement;
 import koval.mobile.myfitnesspal.service.enums.Filters;
+import koval.mobile.myfitnesspal.service.enums.FreePlansName;
 import koval.mobile.myfitnesspal.service.enums.PlansCategory;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
@@ -35,6 +36,11 @@ public class PlansHubPage extends PlansHubPageBase {
 
     @Override
     public PlansDetailsPageBase clickOnAvailablePlan(Filters filters) {
+        throw new NotImplementedException();
+    }
+
+    @Override
+    public PlansDetailsPageBase clickOnPlanByName(Filters filters, FreePlansName freePlansName) {
         throw new NotImplementedException();
     }
 

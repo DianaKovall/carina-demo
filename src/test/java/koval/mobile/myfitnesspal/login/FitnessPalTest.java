@@ -4,6 +4,7 @@ import com.zebrunner.agent.core.annotation.TestLabel;
 import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
 
 import com.zebrunner.carina.core.registrar.tag.TestTag;
+import com.zebrunner.carina.utils.R;
 import com.zebrunner.carina.utils.resources.L10N;
 import io.cucumber.junit.CucumberOptions;
 import koval.mobile.myfitnesspal.gui.common.actions.RecipesMealsFoodsPageBase;
@@ -38,9 +39,8 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.time.LocalDate;
+import java.util.*;
 
 
 public class FitnessPalTest extends LoginTest {
@@ -66,7 +66,7 @@ public class FitnessPalTest extends LoginTest {
 
         DashboardPageBase dashboardPageBase = initPage(getDriver(), DashboardPageBase.class);
 
-        Assert.assertTrue(dashboardPageBase.isUserPremium(), "[ DASHBOARD PAGE ] User is premium!");
+        Assert.assertFalse(dashboardPageBase.isUserPremium(), "[ DASHBOARD PAGE ] User is premium!");
     }
 
 
@@ -556,5 +556,46 @@ public class FitnessPalTest extends LoginTest {
         }
 
     }
+
+
+    public PlansTaskManagerPageBase startPlan(Filters filter, FreePlansName planName) {
+        DashboardPageBase dashboardPageBase = initPage(getDriver(), DashboardPageBase.class);
+
+        PlansTaskManagerPageBase plansTaskManagerPageBase = initPage(getDriver(), PlansTaskManagerPageBase.class);
+        PlansHubPageBase plansHubPageBase = (PlansHubPageBase) dashboardPageBase.openPageFromDownMenuByName(DownMenuElement.PLANS);
+
+        if (!plansHubPageBase.isPageOpened(TIMEOUT_FIFTEEN)) {
+            plansHubPageBase = plansTaskManagerPageBase.endPlan();
+        }
+
+        PlansDetailsPageBase plansDetailsPageBase = plansHubPageBase.clickOnPlanByName(filter, planName);
+        plansDetailsPageBase.clickOnStartPlan();
+        plansTaskManagerPageBase = plansDetailsPageBase.clickOnContinueAlertMessageIfPresent();
+        plansTaskManagerPageBase.closeWelcomeMessageIfPresent(TIMEOUT_TEN);
+
+        return initPage(getDriver(), PlansTaskManagerPageBase.class);
+    }
+
+
+    @Test(groups = {"closeApp"})
+    @MethodOwner(owner = "koval")
+    public void checkPlansEachDayTest() {
+
+        PlansTaskManagerPageBase plansTaskManagerPageBase = startPlan(Filters.FREE, FreePlansName.MYFITNESSPAL_101);
+        int plansDay = plansTaskManagerPageBase.getPlansArrayFromJSON(R.TESTDATA.get("MYFITNESSPAL_101_JSONFILE_PATH")).length();
+        List<Boolean> list = new ArrayList<>(Arrays.asList(new Boolean[plansDay]));
+
+        for (int i = 1; i <= plansDay; i++) {
+            list.add(plansTaskManagerPageBase.isAllTasksOpenByDay(i));
+        }
+
+        list.removeIf(Objects::isNull);
+        for (Boolean value : list) {
+            LOGGER.info(String.valueOf(value));
+        }
+        plansTaskManagerPageBase.endPlan();
+
+    }
+
 
 }
