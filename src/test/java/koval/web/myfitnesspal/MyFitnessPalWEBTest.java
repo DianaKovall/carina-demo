@@ -85,7 +85,6 @@ public class MyFitnessPalWEBTest implements IMyInterface {
     @MethodOwner(owner = "dkoval")
     @TestLabel(name = "feature", value = {"web", "regression"})
     public void addCreateOwnFood() throws InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchMethodException {
-
         HomePage homePage = new HomePage(getDriver());
         FoodDiaryPage foodDiaryPage = (FoodDiaryPage) homePage.getMainMenu().openPageFromMenu(MainMenu.FOOD);
         MyFoodsPage myFoodsPage = (MyFoodsPage) foodDiaryPage.getSubMenu().openPageFromSubMenu(FoodMenu.MY_FOODS);
