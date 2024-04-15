@@ -23,4 +23,7 @@ public abstract class RecipesMealsFoodsPageBase extends MyAbstractPageBase {
     public abstract MePageBase clickBackButton();
 
     public abstract List<String> getItemElementsToList();
+
+    public abstract String getMyFoodsTitleWithSymbol(String symbol);
+
 }

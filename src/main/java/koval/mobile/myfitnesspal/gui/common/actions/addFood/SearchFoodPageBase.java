@@ -26,6 +26,8 @@ public abstract class SearchFoodPageBase extends MyAbstractPageBase {
 
     public abstract SearchFoodPageBase changeMealByName(Meals meals);
 
+    public abstract void getFoodTitles();
+
     public abstract String getFoodTitleText();
 
     public abstract DiaryPageBase addFoodToMealByName(String food);

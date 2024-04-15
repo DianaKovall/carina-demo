@@ -125,4 +125,39 @@ public class MyFitnessPalWEBTest implements IMyInterface {
         Assert.assertTrue(exerciseDiary.isExerciseAdded(exercise), "[ EXERCISE DIARY ] Exercise was not added!");
     }
 
+    interface MyGeneric<T> {
+        T compute(T t);
+    }
+    public MyGeneric<String> methodForString() {
+        MyGeneric<String> reverse = (str) -> {
+            StringBuilder result = new StringBuilder();
+            for(int i = str.length()-1; i >= 0; i--)
+                result.append(str.charAt(i));
+            return result.toString();
+        };
+        return reverse;
+    }
+
+    public MyGeneric<Integer> methodForInteger() {
+        MyGeneric<Integer> factorial = (Integer n) -> {
+            int result = 1;
+            for(int i=1; i <= n; i++)
+                result = i * result;
+            return result;
+        };
+        return factorial;
+    }
+
+    @Test()
+    @MethodOwner(owner = "dkoval")
+    public void lambdaFunctionsWithGenericsTest (){
+        MyGeneric<String> reverseString = methodForString();
+        String reversed = reverseString.compute("check");
+        LOGGER.info(reversed);
+
+        MyGeneric<Integer> calculateFactorial = methodForInteger();
+        int factorial = calculateFactorial.compute(5);
+        LOGGER.info(String.valueOf(factorial));
+    }
+
 }
