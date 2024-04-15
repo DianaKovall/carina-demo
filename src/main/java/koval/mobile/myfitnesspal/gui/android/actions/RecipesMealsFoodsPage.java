@@ -41,6 +41,10 @@ public class RecipesMealsFoodsPage extends RecipesMealsFoodsPageBase {
         super(driver);
     }
 
+    public static String printFormatted(String str, StringFunction format) {
+        return format.run(str);
+    }
+
     @Override
     public RecipesMealsFoodsPageBase openTabByName(Items items) {
 
@@ -73,14 +77,20 @@ public class RecipesMealsFoodsPage extends RecipesMealsFoodsPageBase {
         return initPage(getDriver(), MePageBase.class);
     }
 
-
     @Override
     public List<String> getItemElementsToList() {
-
         waitUntil(ExpectedConditions.visibilityOfElementLocated(myFoodsTitle.getBy()), TIMEOUT_FIFTEEN);
+        return listOfMyFoods.stream().map(element -> element.getText()).collect(Collectors.toList());
+    }
 
+    @Override
+    public String getMyFoodsTitleWithSymbol(String symbol) {
+        StringFunction result = (s) -> s + symbol;
+        return printFormatted(myFoodsTitle.getText(), result);
+    }
 
-        return listOfMyFoods.stream().map(ExtendedWebElement::getText).collect(Collectors.toList());
+    interface StringFunction {
+        String run(String str);
     }
 
 }

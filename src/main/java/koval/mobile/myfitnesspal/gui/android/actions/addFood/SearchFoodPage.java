@@ -15,7 +15,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 
@@ -120,6 +122,17 @@ public class SearchFoodPage extends SearchFoodPageBase {
         }
 
         return initPage(getDriver(), SearchFoodPageBase.class);
+    }
+
+    @Override
+    public void getFoodTitles() {
+        if (foodTitleList.isEmpty()) {
+            Assert.fail("[ SEARCH FOOD PAGE ] List of food is empty!");
+        }
+        ArrayList<String> foodTitlesList = foodTitleList.stream()
+                .collect(ArrayList::new, (list, element) -> list.add(String.valueOf(element)), ArrayList::addAll);
+        Consumer<String> method = (n) -> { System.out.println(n); };
+        foodTitlesList.forEach( method );
     }
 
     @Override

@@ -25,12 +25,10 @@ public class FoodDiaryPage extends MyAbstractPage {
 
 
     public FoodDiaryPage deleteAllFood() {
-        int attemp = listOfDeleteFoodButton.size();
+        listOfDeleteFoodButton.stream()
+                .limit(listOfDeleteFoodButton.size())
+                .forEach(button -> button.click(TIMEOUT_TWENTY));
 
-        while (!listOfDeleteFoodButton.isEmpty() && attemp > 0) {
-            attemp--;
-            listOfDeleteFoodButton.get(0).click(TIMEOUT_TWENTY);
-        }
         return new FoodDiaryPage(driver);
     }
 
